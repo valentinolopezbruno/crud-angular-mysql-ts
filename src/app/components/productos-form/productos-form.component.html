@@ -1,0 +1,33 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form style="text-align: center;">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="producto.nombre" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="precio" placeholder="Precio" [(ngModel)]="producto.precio" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="url" name="imagen" placeholder="IMG URL" [(ngModel)]="producto.imagen" class="form-control">
+                </div>
+
+
+                <button class="btn btn-success btn-block" (click)="edit ? editarProducto() : agregarProducto()">
+                    Agregar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md">
+    <div class="card card-body text-center">
+        <h3>{{producto.nombre == '' ? 'Nombre Producto': producto.nombre}}</h3>
+        <p> {{producto.precio == 0 ? "Ingresa un Precio": '$' + producto.precio}}</p>
+        <img [src]="producto.imagen == '' ? '/assets/descarga.png' : producto.imagen" class="card-img-top">
+    </div>
+</div>
